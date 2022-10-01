@@ -1,1 +1,1 @@
-cd MyApp.Client && npm run ui:build
+cd Gallery.Wasm && npm run ui:build
