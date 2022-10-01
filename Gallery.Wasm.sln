@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gallery.Wasm", "Gallery.Wasm\Gallery.Wasm.csproj", "{E423D084-FB17-4D51-AEFF-771A45C74BFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gallery.Wasm.Client", "Gallery.Wasm.Client\Gallery.Wasm.Client.csproj", "{E423D084-FB17-4D51-AEFF-771A45C74BFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gallery.Wasm.Server", "Gallery.Wasm.Server\Gallery.Wasm.Server.csproj", "{FCCC2DFC-1819-4881-9F4A-10E26361DA95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gallery.Wasm", "Gallery.Wasm\Gallery.Wasm.csproj", "{FCCC2DFC-1819-4881-9F4A-10E26361DA95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
