@@ -12,7 +12,8 @@
         <PackageReference Include="System.Memory" Version="4.5.4" />
         <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
         <PackageReference Include="ServiceStack.OrmLite.Sqlite.Data" Version="6.*" />
-        <PackageReference Include="ServiceStack.Server" Version="6.*" />    </ItemGroup>
+        <PackageReference Include="ServiceStack.Server" Version="6.*" />
+    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Gallery.Wasm.Client\Gallery.Wasm.Client.csproj" />
