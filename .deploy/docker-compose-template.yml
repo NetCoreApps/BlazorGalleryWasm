@@ -7,8 +7,6 @@ services:
     ports:
       - "80"
     environment:
-      LC_ALL: en_US.UTF-8
-      LANG: en_US.UTF-8
       VIRTUAL_HOST: ${HOST_DOMAIN}
       LETSENCRYPT_HOST: ${HOST_DOMAIN}
       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
