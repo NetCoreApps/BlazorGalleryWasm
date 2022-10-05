@@ -472,6 +472,7 @@ else
 </div>
 @typeparam Model
 @inherits AuthBlazorComponentBase
+@implements IDisposable
 @if (invalidAccess != null)
 {
 <div class="w-body md:w-body overflow-auto">
@@ -910,18 +911,21 @@ Sign In
 @using Microsoft.AspNetCore.Components.Forms
 @typeparam TValue
 @inherits TextInputBase<TValue>
+@implements IAsyncDisposable
+<div class=@ClassNames("flex", !IsMultiple ? "justify-between" : "flex-col")>
 <div>
 @if (!string.IsNullOrEmpty(UseLabel))
 {
 <label for=@Id class="block text-sm font-medium text-gray-700">@UseLabel</label>
 }
-<div class="mt-1 relative">
+<div class="block mt-2">
+<span class="sr-only">UseHelp ?? UseLabel</span>
 @{
 var cls = @ClassNames("block w-full sm:text-sm rounded-md",
 CssClass("block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100",
 "pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500"));
 }
-<InputFile class=@cls id=@Id name=@Id placeHolder=@UsePlaceholder @attributes="IncludeAttributes" />
+<InputFile @ref="InputFile" class=@cls id=@Id name=@Id placeHolder=@UsePlaceholder @attributes="IncludeAttributes" OnChange="@OnChange" />
 @if (HasErrorField)
 {
 <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -941,6 +945,27 @@ else if (!string.IsNullOrEmpty(UseHelp))
 <p id=@($"{Id}-description") class="text-gray-500">@UseHelp</p>
 }
 </div>
+@if (!IsMultiple)
+{
+<div class="shrink-0 cursor-pointer">
+<img @onclick="openFile" class=@ClassNames("h-16 w-16 object-cover", imgCls(imgSrc())) src=@imgSrc() alt=@($"Current {UseLabel}") />
+</div>
+}
+</div>
+@code {
+string? imgSrc()
+{
+var inputFile = inputFiles?.FirstOrDefault();
+if (inputFile != null)
+return inputFile.FilePath;
+if (Value is string val && val != "")
+return FileIcons.FilePathUri(val);
+return null;
+}
+string imgCls(string? src) => string.IsNullOrEmpty(src) || src.StartsWith("data:") || src.EndsWith(".svg")
+? ""
+: "rounded-full";
+}
 @using Microsoft.AspNetCore.Components.Forms
 @typeparam TReq
 @inherits UiComponentBase
@@ -1198,34 +1223,35 @@ if (Format?.Method == null)
 else
 {
 var str = $"{value}";
-if (Format.Method == FormatMethods.IconRounded)
-{
-<img class="w-8 h-8 rounded-full" title=@str src=@str>
-}
-else if (Format.Method == FormatMethods.Icon)
-{
-<img class="w-6 h-6" title=@str src=@str>
-}
-else if (Format.Method == FormatMethods.Currency)
-{
-@($"{value.ConvertTo<decimal>():C}")
-}
-else if (Format.Method == FormatMethods.Bytes)
-{
-@TextUtils.FormatBytes(value.ConvertTo<long>())
-}
-else if (Format.Method.StartsWith("link"))
-{
 var attrs = (Format.Options != null
 ? BlazorConfig.Instance.JSParseObject(Format.Options)
 : null) ?? new();
+var cls = attrs.Remove("cls", out var oClass) ? oClass as string : null;
+if (Format.Method == FormatMethods.IconRounded)
+{
+<img class=@(cls ?? "w-8 h-8 rounded-full") title=@str src=@str>
+}
+else if (Format.Method == FormatMethods.Icon)
+{
+<img class=@(cls ?? "w-6 h-6") title=@str src=@str>
+}
+else if (Format.Method == FormatMethods.Currency)
+{
+<span class=@cls>@($"{value.ConvertTo<decimal>():C}")</span>
+}
+else if (Format.Method == FormatMethods.Bytes)
+{
+<span class=@cls>@TextUtils.FormatBytes(value.ConvertTo<long>())</span>
+}
+else if (Format.Method.StartsWith("link"))
+{
 if (Format.Method == FormatMethods.Link)
 {
-<a class="text-blue-600 hover:text-blue-800" href=@str @attributes=attrs @onclick:stopPropagation>@str</a>
+<a class=@(cls ?? "text-blue-600 hover:text-blue-800") href=@str @attributes=attrs @onclick:stopPropagation>@str</a>
 }
 else if (Format.Method == FormatMethods.LinkPhone)
 {
-<a class="text-blue-600 hover:text-blue-800" href=@($"tel:{str}") @attributes=attrs @onclick:stopPropagation>@str</a>
+<a class=@(cls ?? "text-blue-600 hover:text-blue-800") href=@($"tel:{str}") @attributes=attrs @onclick:stopPropagation>@str</a>
 }
 else if (Format.Method == FormatMethods.LinkEmail)
 {
@@ -1234,12 +1260,12 @@ if (attrs.Remove("subject", out var oSubject) && oSubject is string subject)
 href = href.AddQueryParam("subject", subject.UrlEncode().Replace("+", "%20"), encode: false);
 if (attrs.Remove("body", out var oBody) && oBody is string body)
 href = href.AddQueryParam("body", body.UrlEncode().Replace("+","%20"), encode:false);
-<a class="text-blue-600 hover:text-blue-800" href=@($"mailto:{href}") @attributes=attrs @onclick:stopPropagation>@str</a>
+<a class=@(cls ?? "text-blue-600 hover:text-blue-800") href=@($"mailto:{href}") @attributes=attrs @onclick:stopPropagation>@str</a>
 }
 }
 else if (Format.Method != FormatMethods.Hidden)
 {
-@FormatValue(value)
+<span class=@cls>@FormatValue(value)</span>
 }
 }
 }
