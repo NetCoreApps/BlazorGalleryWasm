@@ -17,6 +17,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Include="App_Data\**\*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\Gallery.Wasm.Client\Gallery.Wasm.Client.csproj" />
     </ItemGroup>
 
