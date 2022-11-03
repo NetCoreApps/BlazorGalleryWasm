@@ -10,7 +10,7 @@
   "resources": {
     "assembly": {
       "Blazor.Extensions.Logging.dll": "sha256-EtRNQEJJOXiHCzSsaER5PPSqCmdrD2OxFA8rPxF1wSk=",
-      "Gallery.Wasm.Client.dll": "sha256-8bwwGxAOqBzSkCJ7IneNk6C4fQnKeZRaWZue6HoRHPM=",
+      "Gallery.Wasm.Client.dll": "sha256-AQCDXoW89SOoHXMA8sL0h8IMRaZyhT7C0U6UarhXV80=",
       "Markdig.dll": "sha256-Yw+GRvxgz3z1q0RtGw3n9XUh1wzzAOQJ7uMJJAJs770=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-3zFfWK15xyepDmaBCDWz1wPs5VaFI6j7NT9rWG+NPmQ=",
       "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-pJhJUyK+Keb6Y2KS88dHTklO59WZe6nGArXGLtzs7ng=",
@@ -32,10 +32,10 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-YColTWA58whC+8aBjv1O7HgsyYrbHTba601EkNDWAlo=",
       "Microsoft.JSInterop.dll": "sha256-jauveF6ykbHkiU3J1+VLgRbVD12EArnecX8Ljqdd8E8=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-vnE\/f0iqOlVKaRjTpLiArMb+lw6INqH0HhqcMh9FPe0=",
-      "ServiceStack.Blazor.dll": "sha256-hmRUonPFVhlUnlDzgZaZ\/k4CT3tNW3kzYSMr2FN4d14=",
-      "ServiceStack.Client.dll": "sha256-5tyhOOAX2zK11xJ4SBXu\/uUvWVUpYp17c+fvUldMVj4=",
-      "ServiceStack.Interfaces.dll": "sha256-svc74hjzk+OQgVkIoghIIPCxBeSwFCANTj9xuPQLMRE=",
-      "ServiceStack.Text.dll": "sha256-0D7O\/V8k8CTpuxGGfQ7l77v5MeA\/1yRdVz9+y\/6jbIA=",
+      "ServiceStack.Blazor.dll": "sha256-V4AWwa5ing8uYq50n7sqVgdcCCOjVIpGQ1EbsiAsMbk=",
+      "ServiceStack.Client.dll": "sha256-FMU6ccOmmKmdEyfYgj\/LJXCsilwWDMS+Q389HnWh7r8=",
+      "ServiceStack.Interfaces.dll": "sha256-WNZw6CVHmBks8qAYi5PC\/U1VdJ9KL9yrZfeNFNP5tIs=",
+      "ServiceStack.Text.dll": "sha256-il2+fhOh2uRgzxQfJALPh2kgQrSUUBiB6hxqJdgcO1M=",
       "System.Collections.Concurrent.dll": "sha256-Sm4iZvu4nwvI+w7KYiXhaLIYOg20fbCmSxifbAcU7Ak=",
       "System.Collections.dll": "sha256-1+sw+EnbpfXNqS6A23sc3GrKGsB+YuTYxOZSYgrTORs=",
       "System.Collections.NonGeneric.dll": "sha256-U1f2ZXOpJkAijzdIXPfqgcIbmjgJd8sfSox676v0ARY=",
