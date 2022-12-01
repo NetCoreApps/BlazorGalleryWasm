@@ -2,7 +2,9 @@
 {
     public partial class ContactsMeta
     {
-        public string SourceCode = @"[Icon(Svg = Icons.Contact)]
+        public string SourceCode = $"{CreateContactSrc}\n{UpdateContactSrc}";
+
+        public const string CreateContactSrc = @"[Icon(Svg = Icons.Contact)]
 public class Contact : AuditBase
 {
     [AutoIncrement]
@@ -35,8 +37,9 @@ public class Contact : AuditBase
     [Reference]
     public List<JobApplication> Applications { get; set; }
 }
+";
 
-// Customize Edit Forms with [Input] and [FieldCss] attributes 
+        public const string UpdateContactSrc = @"// Customize Edit Forms with [Input] and [FieldCss] attributes 
 public class UpdateContact : IPatchDb<Contact>, IReturn<Contact>
 {
     public int Id { get; set; }
@@ -62,6 +65,9 @@ public class UpdateContact : IPatchDb<Contact>, IReturn<Contact>
     [ValidateNotEmpty]
     public string? Email { get; set; }
     public string? Phone { get; set; }
+    
+    [Input(Type = ""tag""), FieldCss(Field = ""col-span-12"")]
+    public List<string>? Skills { get; set; }}
  
     [Input(Type=""textarea"")]
     [FieldCss(Field=""col-span-12 text-center"", Input=""h-48"", Label=""text-xl text-indigo-700"")]
