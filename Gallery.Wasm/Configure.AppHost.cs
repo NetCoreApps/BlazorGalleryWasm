@@ -20,10 +20,9 @@ public class AppHost : AppHostBase, IHostingStartup
 
         Plugins.Add(new CorsFeature(allowedHeaders: "Content-Type,Authorization",
             allowOriginWhitelist: new[]{
+            "http://localhost:3000",
             "http://localhost:5000",
             "https://localhost:5001",
-            "http://localhost:5173", //vite dev
-            "https://docs.servicestack.net",
             "https://" + Environment.GetEnvironmentVariable("DEPLOY_CDN")
         }, allowCredentials: true));
 
