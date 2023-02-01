@@ -23,6 +23,7 @@ public class AppHost : AppHostBase, IHostingStartup
             "http://localhost:3000",
             "http://localhost:5000",
             "https://localhost:5001",
+            "https://docs.servicestack.net",
             "https://" + Environment.GetEnvironmentVariable("DEPLOY_CDN")
         }, allowCredentials: true));
 
