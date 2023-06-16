@@ -22,6 +22,7 @@ public class AppHost : AppHostBase, IHostingStartup
             allowOriginWhitelist: new[]{
             "http://localhost:5000",
             "https://localhost:5001",
+            "https://localhost:5002",
             "http://localhost:3000",
             "http://localhost:5173",
             "http://localhost:8080",
