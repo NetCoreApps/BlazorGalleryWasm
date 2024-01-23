@@ -10,6 +10,8 @@ using ServiceStack.Blazor;
 using System.Net;
 using MyApp.ServiceInterface;
 
+Licensing.RegisterLicense("OSS GPL-3.0 2024 https://github.com/NetCoreApps/BlazorGalleryWasm YUq87xoeQ8d5SMvpFQqqES8xLkIQpzPC5aImFyu5vEIwQemtbl+H8dV5L88bInraaEn4WrBMV1VyXWi+tqh1z9OXnD7HWvtRKi3ySbe5VC4dOjwl/xGEc/LCDdYt3ebFJD3/feO74fDk5JLJgvFRf2XNWGGlOYtRvJ2mQsOdY8o=");
+
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
