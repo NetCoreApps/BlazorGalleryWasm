@@ -12,8 +12,17 @@ builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticat
 // Use / for local or CDN resources
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? builder.HostEnvironment.BaseAddress;
-builder.Services.AddBlazorApiClient(apiBaseUrl);
+if (builder.HostEnvironment.IsDevelopment())
+{
+    builder.Services.AddBlazorApiClient(builder.HostEnvironment.BaseAddress);
+}
+else
+{
+    var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? builder.HostEnvironment.BaseAddress;
+    builder.Services.AddBlazorApiClient(apiBaseUrl);
+}
+
+
 builder.Services.AddLocalStorage();
 
 await builder.Build().RunAsync();
