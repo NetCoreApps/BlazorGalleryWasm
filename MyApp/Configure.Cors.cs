@@ -12,7 +12,6 @@ public class ConfigureCors : IHostingStartup
                     policy.WithOrigins([
                         "http://localhost:5000", "https://localhost:5001", "http://localhost:8080",
                         "https://localhost:5173", "http://localhost:5173",
-                        "http://run.plnkr.co", "http://null.jsbin.com",
                     ])
                     .AllowCredentials()
                     .WithHeaders(["Content-Type", "Allow", "Authorization"])

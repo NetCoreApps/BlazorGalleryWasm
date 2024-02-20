@@ -18,6 +18,8 @@ public class AppHost : AppHostBase, IHostingStartup
     // Configure your AppHost with the necessary configuration and dependencies your App needs
     public override void Configure(Container container)
     {
+        TypeScriptGenerator.InsertTsNoCheck = true;
+
         SetConfig(new HostConfig {
             IgnorePathInfoPrefixes = { "/appsettings", "/_framework" },
         });
