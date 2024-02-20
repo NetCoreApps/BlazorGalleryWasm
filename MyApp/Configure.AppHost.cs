@@ -1,5 +1,6 @@
 ﻿using Funq;
 using MyApp.ServiceInterface;
+using ServiceStack.NativeTypes.TypeScript;
 
 [assembly: HostingStartup(typeof(MyApp.AppHost))]
 
