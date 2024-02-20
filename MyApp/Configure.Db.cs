@@ -1,8 +1,4 @@
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using ServiceStack;
 using ServiceStack.Data;
-using ServiceStack.DataAnnotations;
 using ServiceStack.OrmLite;
 
 [assembly: HostingStartup(typeof(MyApp.ConfigureDb))]
