@@ -15,6 +15,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ContainerLabel Include="service" Value="blazor-gallery-wasm" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Content Include="_pages\**" CopyToPublishDirectory="PreserveNewest" />
         <Content Include="_videos\**" CopyToPublishDirectory="PreserveNewest" />
         <None Remove="Migrations\seed\sample_coverletter.pdf" />
