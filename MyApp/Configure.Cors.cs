@@ -11,7 +11,8 @@ public class ConfigureCors : IHostingStartup
                 options.AddDefaultPolicy(policy => {
                     policy.WithOrigins([
                         "http://localhost:5000", "https://localhost:5001", "https://localhost:5002", "http://localhost:8080",
-                        "https://localhost:5173", "http://localhost:5173","https://docs.servicestack.net",
+                        "https://localhost:5173", "http://localhost:5173",
+                        "https://docs.servicestack.net","https://servicestack.net","https://account.servicestack.net",
                         "https://razor-ssg.web-templates.io", "https://razor-press.web-templates.io",
                         "https://press-vue.servicestack.net", "https://press-react.servicestack.net",
                         "https://vue-spa.web-templates.io", "https://react-spa.web-templates.io",
