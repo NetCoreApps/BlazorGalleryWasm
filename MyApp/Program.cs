@@ -27,6 +27,10 @@ services.AddScoped<IdentityUserAccessor>();
 services.AddScoped<IdentityRedirectManager>();
 services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
 
+services.AddAntiforgery(options => {
+    options.SuppressXFrameOptionsHeader = true;
+});
+
 services.AddAuthentication(options =>
     {
         options.DefaultScheme = IdentityConstants.ApplicationScheme;
@@ -92,7 +96,7 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-//app.UseAntiforgery(); remove X-Frame-Options header
+app.UseAntiforgery(); 
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
