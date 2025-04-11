@@ -25,17 +25,9 @@ public class AppHost : AppHostBase, IHostingStartup
             IgnorePathInfoPrefixes = { "/appsettings", "/_framework" },
         });
 
-        string[] allowedOrigins = [
-            "https://localhost:5001",
-            "https://localhost:5002",
-            "https://docs.servicestack.net",
-            "https://servicestack.net",
-            "https://*.servicestack.net",
-        ];
-
         PreRequestFilters.Add((req,res) => {
             var origin = req.Headers.Get(HttpHeaders.Origin);
-            if (origin != null && allowedOrigins.Any(o => origin.StartsWith(o)))
+            if (origin != null && ConfigureCors.Origins.Any(o => origin.StartsWith(o)))
             {
                 res.AddHeader("X-Frame-Options", $"ALLOW-FROM {origin}");
                 res.AddHeader("Content-Security-Policy", $"frame-ancestors {origin}");

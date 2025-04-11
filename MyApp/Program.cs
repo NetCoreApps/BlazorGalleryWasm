@@ -92,7 +92,7 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-app.UseAntiforgery();
+//app.UseAntiforgery(); remove X-Frame-Options header
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
