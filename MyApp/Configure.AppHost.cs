@@ -23,6 +23,9 @@ public class AppHost : AppHostBase, IHostingStartup
 
         SetConfig(new HostConfig {
             IgnorePathInfoPrefixes = { "/appsettings", "/_framework" },
+            GlobalResponseHeaders = {
+                { "X-Frame-Options", "SAMEORIGIN" },
+            },
         });
     }
 }
