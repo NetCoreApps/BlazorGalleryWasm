@@ -33,7 +33,7 @@ public class AppHost : AppHostBase, IHostingStartup
             "https://*.servicestack.net",
         ];
 
-        GlobalResponseFilters.Add((req,res,dto) => {
+        PreRequestFilters.Add((req,res) => {
             var origin = req.Headers.Get(HttpHeaders.Origin);
             if (origin != null && allowedOrigins.Any(o => origin.StartsWith(o)))
             {
