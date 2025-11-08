@@ -11,6 +11,7 @@ public class ConfigureCors : IHostingStartup
         "https://razor-ssg.web-templates.io", "https://razor-press.web-templates.io",
         "https://press-vue.servicestack.net", "https://press-react.servicestack.net",
         "https://vue-spa.web-templates.io", "https://react-spa.web-templates.io",
+        "https://react.servicestack.net",
     ];
     public void Configure(IWebHostBuilder builder) => builder
         .ConfigureServices(services =>
